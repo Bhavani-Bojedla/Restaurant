@@ -6,8 +6,11 @@ import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 import { HiOutlineMail } from 'react-icons/hi';
 import { FaLock } from 'react-icons/fa';
+import { useDispatch } from 'react-redux';
+import { authActions } from '../../store';
 
 export default function Signin() {
+  const dispatch = useDispatch();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
@@ -27,6 +30,7 @@ export default function Signin() {
       if (response.status === 200) {
         const { access_token } = response.data.data;
         localStorage.setItem('token', access_token);
+        dispatch(authActions.login());
         toast.success('Signin successful');
         navigate('/orders');
       }
@@ -71,6 +75,7 @@ export default function Signin() {
 
           <button
             type="submit"
+            
             disabled={loading}
             className="w-full py-2 font-bold text-white bg-red-500 rounded-lg hover:bg-red-600"
           >
