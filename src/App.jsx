@@ -9,7 +9,6 @@ function App() {
     <BrowserRouter>
     <Navbar />
       <Routes>
-        {/* Render Signin by default */}
         <Route path="/" element={<Signin />} />  
         <Route path="/signup" element={<Signup />} />
         <Route path="/orders" element={<Orders />} />

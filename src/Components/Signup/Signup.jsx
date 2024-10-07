@@ -42,8 +42,6 @@ const Signup = () => {
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
-
-    // Validate the input while typing
     validateInput(name, value);
   };
 
@@ -132,7 +130,6 @@ const Signup = () => {
             helperText={errors.phone_number}
           />
 
-          {/* Role selection */}
           <FormControl fullWidth>
             <InputLabel id="role-label">Role</InputLabel>
             <Select

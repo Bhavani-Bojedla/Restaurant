@@ -1,18 +1,18 @@
 import React from "react";
 import { AppBar, Toolbar, Typography, Button } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
-import { authActions } from "../../store"; // Ensure the path is correct
+import { authActions } from "../../store"; 
 import { Link, useNavigate } from "react-router-dom";
 
 const Navbar = () => {
   const dispatch = useDispatch();
-  const isLoggedIn = useSelector((state) => state.isloggedIn); // Accessing logged-in state
+  const isLoggedIn = useSelector((state) => state.isloggedIn);
   const navigate = useNavigate();
 
   const handleLogout = () => {
     dispatch(authActions.logout());
     localStorage.clear("token");
-    navigate("/"); // Navigate to home after logout
+    navigate("/"); 
   };
 
   return (
@@ -22,7 +22,7 @@ const Navbar = () => {
           FOODIE
         </Typography>
         
-        {!isLoggedIn ? ( // Conditional rendering based on login state
+        {!isLoggedIn ? ( 
           <>
             <Link to="/signup">
               <button className="flex justify-center w-20 py-1.5 px-1 text-base font-medium text-white rounded-md cursor-pointer hover:text-white hover:bg-slate-300 hover:bg-opacity-40">
