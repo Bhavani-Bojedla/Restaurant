@@ -11,7 +11,7 @@ const Navbar = () => {
 
   const handleLogout = () => {
     dispatch(authActions.logout());
-    localStorage.removeItem("token");
+    localStorage.clear("token");
     navigate("/"); // Navigate to home after logout
   };
 

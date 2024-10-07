@@ -26,8 +26,8 @@ const Orders = () => {
             { headers: { Authorization: `Bearer ${token}` } }
           )
         ]);
-        const pendingOrdersData = Array.isArray(pendingOrdersResponse.data?.data) ? pendingOrdersResponse.data.data : [];
-        const servedOrdersData = Array.isArray(servedOrdersResponse.data?.data) ? servedOrdersResponse.data.data : [];
+        const pendingOrdersData =pendingOrdersResponse.data.data;
+        const servedOrdersData = servedOrdersResponse.data.data ;
         const allOrders = [...pendingOrdersData, ...servedOrdersData];
         allOrders.sort((a, b) => a.order_version - b.order_version);
         setOrders(allOrders);
